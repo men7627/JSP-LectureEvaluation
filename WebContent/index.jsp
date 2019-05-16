@@ -34,10 +34,25 @@
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input type="form-control" mr-sm-2 type="search" placeholder="내용을 입력하세요." aria-label="search">
+				<input class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요." aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 			</form>	
 		</div>
 	</nav>
+	<section class="container">
+		<form method="get" action="./index.jsp" class="form-inline mt-3">
+			<select name="LectureDivide" class="form-controll mx-1 mt-2">
+				<option value="전체">전체</option>
+				<option value="전체">전공</option>
+				<option value="전체">교양</option>
+				<option value="전체">교양</option>
+			</select>
+			<input type="text" name="search" class="form-control mx-1 mt-2" placeholder="내용을 입력하세요.">
+			<button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
+			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">등록하기</a>
+			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportrModal">신고</a>
+		</form>
+	</section>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
 	<!-- 파퍼 자바스크립트 추가하기 -->
