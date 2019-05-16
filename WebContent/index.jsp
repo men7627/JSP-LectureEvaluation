@@ -33,6 +33,9 @@
 					</div>
 				</li>
 			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input type="form-control" mr-sm-2 type="search" placeholder="내용을 입력하세요." aria-label="search">
+			</form>	
 		</div>
 	</nav>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
