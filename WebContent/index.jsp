@@ -17,6 +17,23 @@
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" >
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		<div id="navbar" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.jsp">메인</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">
+						회원 관리
+					</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown">
+						<a class="dropdown-item" href="#">로그인</a>
+						<a class="dropdown-item" href="#">회원가입</a>
+						<a class="dropdown-item" href="#">로그아웃</a>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</nav>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
