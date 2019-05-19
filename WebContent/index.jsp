@@ -52,7 +52,66 @@
 			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">등록하기</a>
 			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
 		</form>
+		
+		<div class="card bg-light mt-3">
+			<div class="card-header bg light">
+				<div class="row">
+					<div class="col-8 text-left">컴퓨터개론&nbsp;<small>김효건</small></div>
+					<div class="col-4 text-right">
+						종합<span style="color: red;">A</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					정말 좋은 강의예요.&nbsp;<small>(2017년 겨울학기)</small>
+				</h5>
+				<p class="card-text">강의가 많이 널널해서, 솔직히 많이 배운 건 없는 것 같지만 학점도 잘 나오고 너무 좋은 것 같습니다.</p>
+				<div class="row">
+					<div class="col-9-left">
+						성적<span style="color: red;">A</span>
+						널널<span style="color: red;">A</span>
+						강의<span style="color: red;">B</span>
+						<span style="color: green;">(추천: 15명)</span>
+					</div>
+					<div class="col-3 text-right">
+						<a onclick="return confirm('추천하시겠습니까?')" href="./likeAction.jsp?evaluationID=">추천</a>
+						<a onclick="return confirm('삭제하시겠습니까?')" href="./deleteAction.jsp?evaluationID=">삭제</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="card bg-light mt-3">
+			<div class="card-header bg light">
+				<div class="row">
+					<div class="col-8 text-left">자료구조&nbsp;<small>효건</small></div>
+					<div class="col-4 text-right">
+						종합<span style="color: red;">B</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					재밌어요&nbsp;<small>(2017년 2학기)</small>
+				</h5>
+				<p class="card-text">너무 재밌습니다 !</p>
+				<div class="row">
+					<div class="col-9-left">
+						성적<span style="color: red;">B</span>
+						널널<span style="color: red;">C</span>
+						강의<span style="color: red;">A</span>
+						<span style="color: green;">(추천: 11명)</span>
+					</div>
+					<div class="col-3 text-right">
+						<a onclick="return confirm('추천하시겠습니까?')" href="./likeAction.jsp?evaluationID=">추천</a>
+						<a onclick="return confirm('삭제하시겠습니까?')" href="./deleteAction.jsp?evaluationID=">삭제</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
+	
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
