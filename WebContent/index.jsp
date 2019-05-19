@@ -63,6 +63,55 @@
 					</button>
 				</div>
 				<div class="modal-body">
+					<form action="./evaluationRegisterAction.jsp" method="post">
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label>강의명</label>
+								<input type="text" name="lectureName" class="form-control" maxlength="20">
+							</div>
+							<div class="form-group col-sm-6">
+								<label>교수명</label>
+								<input type="text" name="pofessorName" class="form-control" maxlength="20">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm-4">
+								<label>수강 년도</label>
+								<select name="lectureYear" class="form-control">
+									<option value="2011">2011</option>
+									<option value="2012">2012</option>
+									<option value="2013">2013</option>
+									<option value="2014">2014</option>
+									<option value="2015">2015</option>
+									<option value="2016">2016</option>
+									<option value="2017">2017</option>
+									<option value="2018">2018</option>
+									<option value="2019" selected>2019</option>
+									<option value="2020">2020</option>
+									<option value="2021">2021</option>
+									<option value="2022">2022</option>
+									<option value="2023">2023</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label>수강 학기</label>
+								<select name="semesterDivide" class="form-control">
+									<option value="1학기" selected>1학기</option>
+									<option value="여름학기">여름학기</option>
+									<option value="2학기">2학기</option>
+									<option value="겨울학기">겨울학기</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label>강의 구분 </label>
+								<select name="lectureDivide" class="form-control">
+									<option value="전공" selected>1학기</option>
+									<option value="교양">여름학기</option>
+									<option value="기타">2학기</option>
+								</select>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
