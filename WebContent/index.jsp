@@ -53,6 +53,20 @@
 			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportrModal">신고</a>
 		</form>
 	</section>
+	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal">평가 등록</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
 	<!-- 파퍼 자바스크립트 추가하기 -->
