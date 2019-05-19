@@ -50,7 +50,7 @@
 			<input type="text" name="search" class="form-control mx-1 mt-2" placeholder="내용을 입력하세요.">
 			<button type="submit" class="btn btn-primary mx-1 mt-2">검색</button>
 			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">등록하기</a>
-			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportrModal">신고</a>
+			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">신고</a>
 		</form>
 	</section>
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -164,6 +164,34 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 							<button type="submit" class="btn btn-primary">등록하기</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modal">신고하기</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="./reportAction.jsp" method="post">
+						<div class="form-group">
+							<label>신고 제목</label>
+							<input type="text" name="reprtTitle" class="form-control" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label>내용</label>
+							<textarea name="reportContent" class="form-control" maxlength="2048" style="height:180px;"></textarea>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+							<button type="submit" class="btn btn-danger">신고하기</button>
 						</div>
 					</form>
 				</div>
