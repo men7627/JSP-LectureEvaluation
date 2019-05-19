@@ -105,11 +105,65 @@
 							<div class="form-group col-sm-4">
 								<label>강의 구분 </label>
 								<select name="lectureDivide" class="form-control">
-									<option value="전공" selected>1학기</option>
-									<option value="교양">여름학기</option>
-									<option value="기타">2학기</option>
+									<option value="전공" selected>전공</option>
+									<option value="교양">교양</option>
+									<option value="기타">기타</option>
 								</select>
 							</div>
+						</div>
+						<div class="form-group">
+							<label>제목</label>
+							<input type="text" name="evaluationTime" class="form-control" maxlength="30">
+						</div>
+						<div class="form-group">
+							<label>내용</label>
+							<textarea name="evaluationContent" class="form-control" maxlength="2048" style="height:180px;"></textarea>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm-3">
+								<label>종합</label>
+								<select name="totalScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="F">F</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-3">
+								<label>성적</label>
+								<select name="creditScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="F">F</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-3">
+								<label>널널</label>
+								<select name="comfortableScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="F">F</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-3">
+								<label>강의</label>
+								<select name="lectureScore" class="form-control">
+									<option value="A" selected>A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="F">F</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+							<button type="submit" class="btn btn-primary">등록하기</button>
 						</div>
 					</form>
 				</div>
