@@ -28,7 +28,6 @@ public class UserDAO {
 			return -1; // 아이디 없음
 		} catch (Exception e) {
 			e.printStackTrace();
-			return -2; // 데이터베이스 오류
 		} finally {
 			if (conn != null) {
 				try {
@@ -52,5 +51,47 @@ public class UserDAO {
 				}
 			}
 		}
+		return -2; // 데이터베이스 오류
+	}
+	
+	public int login(UserDTO user) {
+		String SQL = "INSERT INTO USER VALUES (?,?,?,?,false)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserEmail());
+			pstmt.setString(4, user.getUserEmailHash());
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		} 
+		return -1; // 회원가입 실패
 	}
 }
