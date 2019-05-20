@@ -94,4 +94,45 @@ public class UserDAO {
 		} 
 		return -1; // 회원가입 실패
 	}
+	
+	public Boolean getUserEmailChecked(UserDTO user) {
+		String SQL = "SELECT userEmailChecked FROM USER WHERE userID = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserID());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return rs.getBoolean(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		} 
+		return false; // 데이터베이스 오류
+	}
 }
