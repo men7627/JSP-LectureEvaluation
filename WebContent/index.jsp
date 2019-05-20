@@ -27,9 +27,9 @@
 						회원 관리
 					</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="#">로그인</a>
-						<a class="dropdown-item" href="#">회원가입</a>
-						<a class="dropdown-item" href="#">로그아웃</a>
+						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
+						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 					</div>
 				</li>
 			</ul>
@@ -68,7 +68,7 @@
 				</h5>
 				<p class="card-text">강의가 많이 널널해서, 솔직히 많이 배운 건 없는 것 같지만 학점도 잘 나오고 너무 좋은 것 같습니다.</p>
 				<div class="row">
-					<div class="col-9-left">
+					<div class="col-9 text-left">
 						성적<span style="color: red;">A</span>
 						널널<span style="color: red;">A</span>
 						강의<span style="color: red;">B</span>
@@ -97,7 +97,7 @@
 				</h5>
 				<p class="card-text">너무 재밌습니다 !</p>
 				<div class="row">
-					<div class="col-9-left">
+					<div class="col-9 text-left">
 						성적<span style="color: red;">B</span>
 						널널<span style="color: red;">C</span>
 						강의<span style="color: red;">A</span>
@@ -258,7 +258,7 @@
 		</div>
 	</div>
 	<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-		Copyright & &copy; 2019 김효건 All Rights Reserved.
+		Copyright &copy; 2019 김효건 All Rights Reserved.
 	</footer>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
