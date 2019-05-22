@@ -1,36 +1,77 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ page import="user.UserDTO"%>
-<%@ page import="user.UserDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="evaluation.EvaluationDTO"%>
+<%@ page import="evaluation.EvaluationDAO"%>
 <%@ page import="util.SHA256"%>
 <%@ page import="java.io.PrintWriter"%>
 <%
 	request.setCharacterEncoding("UTF-8"); //사용자로부터 요청받은 요청정보는 UTF-8로 처리
 	String userID = null;
-	if(session.getAttribute("userID") != null){
+	if (session.getAttribute("userID") != null) {
 		userID = (String) session.getAttribute("userID");
 	}
-	if(userID != null){
+	if (userID == null) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('로그인이 된 상태입니다.');");
-		script.println("location.href = 'index.jsp';");
+		script.println("alert('로그인을 해주세요.');");
+		script.println("location.href = 'userLogin.jsp';");
 		script.println("</script>");
 		script.close();
 		return;
 	}
-	String userPassword = null;
-	String userEmail = null;
 
-	if (request.getParameter("userID") != null) {
-		userID = request.getParameter("userID");
+	String lectureName = null;
+	String professorName = null;
+	int lectureYear = 0;
+	String semesterDivide = null;
+	String lectureDivide = null;
+	String evaluationTitle = null;
+	String evaluationContent = null;
+	String totalScore = null;
+	String creditScore = null;
+	String comfortableScore = null;
+	String lectureScore = null;
+
+	if (request.getParameter("lectureName") != null) {
+		lectureName = request.getParameter("lectureName");
 	}
-	if (request.getParameter("userPassword") != null) {
-		userPassword = request.getParameter("userPassword");
+	if (request.getParameter("professorName") != null) {
+		professorName = request.getParameter("professorName");
 	}
-	if (request.getParameter("userEmail") != null) {
-		userEmail = request.getParameter("userEmail");
+	if (request.getParameter("lectureYear") != null) {
+		try {
+			lectureYear = Integer.parseInt(request.getParameter("lectureYear"));
+		} catch (Exception e) {
+			System.out.println("강의 연도 데이터 오류");
+		}
 	}
-	if (userID == null || userPassword == null || userEmail == null) {
+	if (request.getParameter("semesterDivide") != null) {
+		semesterDivide = request.getParameter("semesterDivide");
+	}
+	if (request.getParameter("lectureDivide") != null) {
+		lectureDivide = request.getParameter("lectureDivide");
+	}
+	if (request.getParameter("evaluationTitle") != null) {
+		evaluationTitle = request.getParameter("evaluationTitle");
+	}
+	if (request.getParameter("evaluationContent") != null) {
+		evaluationContent = request.getParameter("evaluationContent");
+	}
+	if (request.getParameter("totalScore") != null) {
+		totalScore = request.getParameter("totalScore");
+	}
+	if (request.getParameter("creditScore") != null) {
+		creditScore = request.getParameter("creditScore");
+	}
+	if (request.getParameter("comfortableScore") != null) {
+		comfortableScore = request.getParameter("comfortableScore");
+	}
+	if (request.getParameter("lectureScore") != null) {
+		lectureScore = request.getParameter("lectureScore");
+	}
+	
+	if (lectureName == null || professorName == null || lectureYear == 0 || semesterDivide == null || lectureDivide == null || evaluationTitle == null || evaluationContent == null || totalScore == null
+			|| creditScore == null || comfortableScore == null || lectureScore == null || evaluationTitle.equals("") || evaluationContent.equals("")) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('입력이 안 된 사항이 있습니다.');");
@@ -39,12 +80,13 @@
 		script.close();
 		return;
 	}
-	UserDAO userDAO = new UserDAO();
-	int result = userDAO.join(new UserDTO(userID, userPassword, userEmail, SHA256.getSHA256(userEmail), false));
+	
+	EvaluationDAO evaluationDAO = new EvaluationDAO();
+	int result = evaluationDAO.write(new EvaluationDTO(0, userID, lectureName, professorName, lectureYear, semesterDivide, lectureDivide, evaluationTitle, evaluationContent, totalScore, creditScore, comfortableScore, lectureScore, 0));
 	if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('이미 존재하는 아이디입니다.');");
+		script.println("alert('강의 평가 게시글 등록 실패했습니다.');");
 		script.println("history.back();");
 		script.println("</script>");
 		script.close();
@@ -53,7 +95,7 @@
 		session.setAttribute("userID", userID);
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("location.href = 'emailSendAction.jsp';");
+		script.println("location.href = 'index.jsp';");
 		script.println("</script>");
 		script.close();
 		return;

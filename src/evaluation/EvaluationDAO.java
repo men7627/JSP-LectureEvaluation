@@ -9,7 +9,7 @@ import util.DatabaseUtil;
 
 public class EvaluationDAO {
 	public int write(EvaluationDTO evaluationDTO) {
-		String SQL = "INSERT INTO EVALUATION VALUSE (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+		String SQL = "INSERT INTO EVALUATION VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
