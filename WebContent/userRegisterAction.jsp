@@ -7,6 +7,18 @@
 <%
 	request.setCharacterEncoding("UTF-8"); //사용자로부터 요청받은 요청정보는 UTF-8로 처리
 	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+	}
+	if(userID != null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인이 된 상태입니다.');");
+		script.println("location.href = 'index.jsp';");
+		script.println("</script>");
+		script.close();
+		return;
+	}
 	String userPassword = null;
 	String userEmail = null;
 

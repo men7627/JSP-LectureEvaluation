@@ -31,8 +31,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("location.href = 'index.jsp'");
-		script.println("history.back();");
-		script.println("</script>");
+		script.println("</script>"); 
 		script.close();
 		return;
 	} else if(result == 0){
@@ -43,7 +42,16 @@
 		script.println("</script>");
 		script.close();
 		return;
+	}  else if(result == -1){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('존재하지 않는 아이디입니다.');");
+		script.println("history.back()");
+		script.println("</script>");
+		script.close();
+		return;
 	}
+	
 	else if(result == -2){
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
