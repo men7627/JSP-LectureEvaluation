@@ -276,7 +276,7 @@
 					<form action="./reportAction.jsp" method="post">
 						<div class="form-group">
 							<label>신고 제목</label>
-							<input type="text" name="reprtTitle" class="form-control" maxlength="30">
+							<input type="text" name="reportTitle" class="form-control" maxlength="30">
 						</div>
 						<div class="form-group">
 							<label>내용</label>

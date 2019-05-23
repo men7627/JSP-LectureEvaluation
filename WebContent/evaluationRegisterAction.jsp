@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="evaluation.EvaluationDTO"%>
 <%@ page import="evaluation.EvaluationDAO"%>
 <%@ page import="util.SHA256"%>
@@ -69,9 +68,11 @@
 	if (request.getParameter("lectureScore") != null) {
 		lectureScore = request.getParameter("lectureScore");
 	}
-	
-	if (lectureName == null || professorName == null || lectureYear == 0 || semesterDivide == null || lectureDivide == null || evaluationTitle == null || evaluationContent == null || totalScore == null
-			|| creditScore == null || comfortableScore == null || lectureScore == null || evaluationTitle.equals("") || evaluationContent.equals("")) {
+
+	if (lectureName == null || professorName == null || lectureYear == 0 || semesterDivide == null
+			|| lectureDivide == null || evaluationTitle == null || evaluationContent == null
+			|| totalScore == null || creditScore == null || comfortableScore == null || lectureScore == null
+			|| evaluationTitle.equals("") || evaluationContent.equals("")) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('입력이 안 된 사항이 있습니다.');");
@@ -80,9 +81,11 @@
 		script.close();
 		return;
 	}
-	
+
 	EvaluationDAO evaluationDAO = new EvaluationDAO();
-	int result = evaluationDAO.write(new EvaluationDTO(0, userID, lectureName, professorName, lectureYear, semesterDivide, lectureDivide, evaluationTitle, evaluationContent, totalScore, creditScore, comfortableScore, lectureScore, 0));
+	int result = evaluationDAO.write(new EvaluationDTO(0, userID, lectureName, professorName, lectureYear,
+			semesterDivide, lectureDivide, evaluationTitle, evaluationContent, totalScore, creditScore,
+			comfortableScore, lectureScore, 0));
 	if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
