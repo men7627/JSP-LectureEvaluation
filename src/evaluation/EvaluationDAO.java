@@ -69,21 +69,36 @@ public class EvaluationDAO {
 		try {
 			if(searchType.equals("최신순")) {
 				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationTitle, evaluationContent) LIKE" +
-						"? ORDER BY evaluationID DESC LIMIT" + pageNumber * 5 + ", " + pageNumber * 5 + 6;
+						"? ORDER BY evaluationID DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
 			} else if (searchType.equals("추천순")) {
 				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationTitle, evaluationContent) LIKE" +
-						"? ORDER BY likeCount DESC LIMIT" + pageNumber * 5 + ", " + pageNumber * 5 + 6;
+						"? ORDER BY likeCount DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
 			}
 			conn = DatabaseUtil.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, "%" + lectureDivide + "%");
-			pstmt.setString(1, "%" + search + "%");
+			pstmt.setString(2, "%" + search + "%");
 			rs = pstmt.executeQuery();
 			evaluationList = new ArrayList<EvaluationDTO>();
-			if (rs.next()) {
-				EvaluationDTO = new EvaluationDTO();
+			while (rs.next()) {
+				EvaluationDTO evaluationDTO = new EvaluationDTO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getInt(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11),
+						rs.getString(12),
+						rs.getString(13),
+						rs.getInt(14)
+				);
+				evaluationList.add(evaluationDTO);
 			}
-			return -1; // 아이디 없음
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -109,6 +124,6 @@ public class EvaluationDAO {
 				}
 			}
 		}
-		return -2; // 데이터베이스 오류
+		return evaluationList; // 데이터베이스 오류
 	}
 }
