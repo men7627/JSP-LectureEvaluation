@@ -123,7 +123,7 @@
 					</div>
 				</li>
 			</ul>
-			<form action="./index.jsp" class="form-inline my-2 my-lg-0">
+			<form action="./index.jsp" method="get" class="form-inline my-2 my-lg-0">
 				<input type="text" name="search" class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요." aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
 			</form>		
