@@ -9,7 +9,7 @@ import util.DatabaseUtil;
 
 public class LikeyDAO {
 	public int like(String userID, String evaluation, String userIP) {
-		String SQL = "INSERT INTO USER VALUES (?,?,?)";
+		String SQL = "INSERT INTO LIKEY VALUES (?, ?, ?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
